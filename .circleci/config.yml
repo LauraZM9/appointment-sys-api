@@ -28,4 +28,8 @@ workflows:
       - say-hello
   heroku_deploy:
     jobs:
-      - heroku/deploy-via-git
+      - heroku/deploy-via-git:
+          filters:
+            branches:
+              only:
+                - main
