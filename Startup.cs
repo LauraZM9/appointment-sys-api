@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using appointment_sys_api.Data;
 
 public class Startup
 {

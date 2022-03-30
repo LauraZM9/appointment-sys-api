@@ -1,4 +1,4 @@
-namespace appointment_sys_api.Domain;
+namespace appointment_sys_api.Models;
 
 public class User
 {

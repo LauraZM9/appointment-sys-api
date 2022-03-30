@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 
+namespace appointment_sys_api.Controllers;
+
 public class HealthCheckController : ControllerBase
 {
   [HttpGet]
