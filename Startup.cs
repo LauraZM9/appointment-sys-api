@@ -13,6 +13,10 @@ public class Startup
     {
       services.AddDbContext<AppointmentDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+      services.AddControllers();
+      services.AddEndpointsApiExplorer();
+      services.AddSwaggerGen();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -21,15 +25,18 @@ public class Startup
         {
             app.UseDeveloperExceptionPage();
         }
-        
+
+        if (env.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
         
         app.UseHttpsRedirection();
 
         app.UseRouting();
 
         app.UseAuthorization();
-        
-        app.UseCors("AllowAllOrigins");
 
         app.UseEndpoints((endpoints => { endpoints.MapControllers();}));
 
