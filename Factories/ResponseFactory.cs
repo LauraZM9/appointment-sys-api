@@ -6,5 +6,10 @@ namespace appointment_sys_api.Factories;
 
 public static class ResponseFactory
 {
-    // public static BookingResponse ToResponse( this Booking)
+    public static BookingResponse ToResponse( this Booking booking) {
+        return new BookingResponse {
+            Name = booking.Name,
+            Id = bookiong.Id
+        }
+    }
 }

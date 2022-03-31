@@ -17,4 +17,9 @@ public class Booking : IEntity
   [Column("name")]
   public string Name {get; set;}
 
+public BookingResponse ToResponse() {
+  return new BookingResponse(){
+    Name = this.Name
+  }
+}
 }
