@@ -1,6 +1,8 @@
 using System;
 using appointment_sys_api.Gateways.Interfaces;
 using appointment_sys_api.UseCase.Interfaces;
+using appointment_sys_api.Boundary.Response;
+using appointment_sys_api.Boundary.Response.Exceptions;
 
 namespace appointment_sys_api.UseCase;
 
