@@ -17,13 +17,9 @@ public class BookingsGateway : IBookingsGateway
     }
 
     public Booking FindBooking(int id)
-        {
-            var entity = _databaseContext.Bookings.Find(id);
-            if (entity == null) return null;
-
-            _databaseContext.Entry(entity).State = EntityState.Detached;
-            return entity.ToDomain();
-        }
+    {
+        return _databaseContext.Bookings.Find(id);
+    }
 
 }
 
