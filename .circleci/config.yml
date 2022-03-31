@@ -4,11 +4,17 @@ orbs:
   heroku: circleci/heroku@1.2.6
 
 jobs:
-  say-hello:
+  run-app-and-say-hello:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
       - checkout
+      - run:
+          name: "Install dependencies"
+          command: dotnet restore
+      - run:
+          name: "Run the application"
+          command: dotnet run &
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
@@ -16,7 +22,7 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - run-app-and-say-hello
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git:
