@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using appointment_sys_api.Infrastructure.Interfaces;
 
 namespace appointment_sys_api.Domain;
 
@@ -8,9 +10,11 @@ public class Booking : IEntity
   [Column("id")]
   public int Id {get; set;}
 
-  [Column("first_name")]
-  public string FirstName {get; set;}
 
-  [Column("last_name")]
-  public string LastName {get; set;}
+  [Column("created_at")]
+  public DateTime CreatedAt { get; set; }
+
+  [Column("name")]
+  public string Name {get; set;}
+
 }
