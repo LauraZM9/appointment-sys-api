@@ -2,7 +2,7 @@ using System;
 
 namespace appointment_sys_api.Domain;
 
-public class User
+public class Booking
 {
   public int Id {get; set;}
   public string FirstName {get; set;}
