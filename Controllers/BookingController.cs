@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using appointment_sys_api.Boundary.Request;
 using appointment_sys_api.Boundary.Response.Exceptions;
+using appointment_sys_api.UseCase.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace appointment_sys_api.Controllers;
