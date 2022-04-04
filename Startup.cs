@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using appointment_sys_api.Infrastructure;
+using appointment_sys_api.Gateways;
+using appointment_sys_api.Gateways.Interfaces;
+using appointment_sys_api.UseCase;
+using appointment_sys_api.UseCase.Interfaces;
 
 public class Startup
 {
@@ -12,8 +16,14 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+      // database context
       services.AddDbContext<BookingDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+      // gateway
+      services.AddScoped<IBookingsGateway, BookingsGateway>();
+      // use case
+      services.AddScoped<IFindBookingByIdUseCase, FindBookingByIdUseCase>();
 
       services.AddControllers();
       services.AddEndpointsApiExplorer();
@@ -40,6 +50,5 @@ public class Startup
         app.UseAuthorization();
 
         app.UseEndpoints((endpoints => { endpoints.MapControllers();}));
-
     }
 }
