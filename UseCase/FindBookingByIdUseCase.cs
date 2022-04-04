@@ -20,7 +20,7 @@ public class FindBookingByIdUseCase : IFindBookingByIdUseCase
     {
         var found = _bookingsGateway.FindBooking(id);
 
-        if (found == null) throw new NotFoundException($"Could not find booking with id {id}"); //Found in Boundaries
+        if (found == null) throw new NotFoundException($"Could not find booking with id {id}");
         
         return found.ToResponse();
     }
