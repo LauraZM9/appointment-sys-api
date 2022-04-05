@@ -39,13 +39,14 @@ public class BookingController : ControllerBase
 
   [HttpPost]
   public IActionResult CreateBooking(BookingRequest request)
+  //based off documents-api createclai
   {
     try 
     {
         var result = _createBookingUseCase.Execute(request);
         return Created(new Uri($"/booking_requests/{result.Id}",UriKind.Relative),result);
     }
-    catch (Exception) //not best practices
+    catch (Exception) //not best practices 
     {
         throw;
     }

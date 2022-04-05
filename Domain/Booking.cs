@@ -10,9 +10,6 @@ public class Booking : IEntity
   [Column("id")]
   public int Id {get; set;}
 
-  [Column("ids")]
-  public int Ids {get; set;}
-
   // [Column("created_at")]
   // public DateTime CreatedAt { get; set; }
 

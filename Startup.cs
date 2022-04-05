@@ -24,6 +24,7 @@ public class Startup
       services.AddScoped<IBookingsGateway, BookingsGateway>();
       // use case
       services.AddScoped<IFindBookingByIdUseCase, FindBookingByIdUseCase>();
+      services.AddScoped<ICreateBookingUseCase, CreateBookingUseCase>();
 
       services.AddControllers();
       services.AddEndpointsApiExplorer();
