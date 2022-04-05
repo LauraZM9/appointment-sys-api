@@ -2,6 +2,7 @@ using System;
 using appointment_sys_api.Gateways.Interfaces;
 using appointment_sys_api.UseCase.Interfaces;
 using appointment_sys_api.Boundary.Response;
+using appointment_sys_api.Boundary.Request;
 using appointment_sys_api.Boundary.Response.Exceptions;
 using appointment_sys_api.Factories;
 using appointment_sys_api.Domain;

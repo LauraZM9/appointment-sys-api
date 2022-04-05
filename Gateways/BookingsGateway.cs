@@ -21,5 +21,15 @@ public class BookingsGateway : IBookingsGateway
         return _databaseContext.Bookings.Find(id);
     }
 
+    public Booking CreateBooking(Booking request)
+    {
+        //using evidenceapi method
+
+        if (request.Id == default) _databaseContext.Bookings.Add(request);
+        _databaseContext.SaveChanges();
+
+        return request;
+    }
+
 }
 
