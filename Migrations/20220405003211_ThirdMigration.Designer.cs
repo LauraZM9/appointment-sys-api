@@ -11,8 +11,8 @@ using appointment_sys_api.Infrastructure;
 namespace appointment_sys_api.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20220404100427_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20220405003211_ThirdMigration")]
+    partial class ThirdMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
