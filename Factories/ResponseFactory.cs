@@ -11,7 +11,11 @@ public static class ResponseFactory
         return new BookingResponse()
         {
             Id = domain.Id,
-            Name = domain.Name
+            Name = domain.Name,
+            Council = domain.Council,
+            Email = domain.Email,
+            JobTitle = domain.JobTitle,
+            PhoneNumber = domain.PhoneNumber
         };
     }
 }
