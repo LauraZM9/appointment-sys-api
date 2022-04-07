@@ -23,7 +23,7 @@ public class CreateBookingUseCase : ICreateBookingUseCase
         var booking = BuildBookingRequest(request);
 
         var created = _bookingsGateway.CreateBooking(booking);
-
+        Console.WriteLine("Booking created: " + created.Id + " " + created.Name);
         return created.ToResponse();
         
     }
