@@ -17,7 +17,7 @@ public class CreateBookingUseCase : ICreateBookingUseCase
         _bookingsGateway = bookingsGateway;
     }
 
-    public BookingResponse Execute(BookingResponse request)
+    public BookingResponse Execute(BookingRequest request)
     {
         var booking = BuildBookingRequest(request);
 
