@@ -2,6 +2,7 @@ using System;
 using appointment_sys_api.Domain;
 using appointment_sys_api.Gateways.Interfaces;
 using appointment_sys_api.Infrastructure;
+using appointment_sys_api.Boundary.Request;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -19,6 +20,14 @@ public class BookingsGateway : IBookingsGateway
     public Booking FindBooking(int id)
     {
         return _databaseContext.Bookings.Find(id);
+    }
+
+    public Booking CreateBooking(Booking booking)
+    {
+        if (booking.Id == default) _databaseContext.Bookings.Add(booking);
+        _databaseContext.SaveChanges();
+
+        return booking;
     }
 
 }

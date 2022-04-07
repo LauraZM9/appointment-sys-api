@@ -5,6 +5,7 @@ using appointment_sys_api.Boundary.Request;
 using appointment_sys_api.Boundary.Response;
 using appointment_sys_api.Boundary.Response.Exceptions;
 using appointment_sys_api.Factories;
+using appointment_sys_api.Domain;
 
 namespace appointment_sys_api.UseCase;
 
@@ -27,7 +28,7 @@ public class CreateBookingUseCase : ICreateBookingUseCase
         
     }
 
-    private static BookingResponse BuildBookingRequest(BookingRequest request)
+    private static Booking BuildBookingRequest(BookingRequest request)
     {
         return new Booking
         {
