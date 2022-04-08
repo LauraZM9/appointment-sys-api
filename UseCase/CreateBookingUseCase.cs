@@ -32,7 +32,7 @@ public class CreateBookingUseCase : ICreateBookingUseCase
     {
         return new Booking
         {
-            // Id = request.Id,
+            Id = request.Id,
             Name = request.Name,
             Council = request.Council,
             Email = request.Email,

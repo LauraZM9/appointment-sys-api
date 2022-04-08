@@ -5,6 +5,7 @@ namespace appointment_sys_api.Boundary.Request;
 
 public class BookingRequest
 {
+  public int Id {get; set;}
   public string Name {get; set;}
   public string Council {get; set;}
   public string Email {get; set;}
