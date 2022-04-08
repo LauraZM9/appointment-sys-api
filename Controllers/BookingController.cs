@@ -9,11 +9,14 @@ namespace appointment_sys_api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Produces("application/json")]
 public class BookingController : ControllerBase
 {
+  private ICreateBookingUseCase _createBookingUseCase;
   private readonly IFindBookingByIdUseCase _findByIdUseCase;
-  public BookingController(IFindBookingByIdUseCase findByIdUseCase)
+  public BookingController(ICreateBookingUseCase createBookingUseCase, IFindBookingByIdUseCase findByIdUseCase)
   {
+    _createBookingUseCase = createBookingUseCase;
     _findByIdUseCase = findByIdUseCase;
   }
 
@@ -30,5 +33,19 @@ public class BookingController : ControllerBase
     {
       return NotFound();
     }
+  }
+
+  [HttpPost]
+  public IActionResult CreateBooking(BookingRequest request)
+  {
+    try 
+    {
+      var result = _createBookingUseCase.Execute(request);
+      return Created(new Uri($"/booking/{result}", UriKind.Relative), result);
+    }
+    catch (NotFoundException)
+      {
+        return NotFound();
+      }
   }
 }
