@@ -20,7 +20,7 @@ public class BookingDbContext : DbContext
         foreach (var entityEntry in entries)
         {
             var entity = ((IEntity) entityEntry.Entity);
-            // if (entity.Id == default) entity.Id = Guid.NewGuid();
+            if (entity.Id == default) entity.Id = Guid.NewGuid();
             if (entity.CreatedAt == default) entity.CreatedAt = DateTime.UtcNow;
         }
 
