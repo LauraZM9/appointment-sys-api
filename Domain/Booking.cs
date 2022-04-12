@@ -8,7 +8,7 @@ namespace appointment_sys_api.Domain;
 public class Booking : IEntity
 {
   [Column("id")]
-  public Guid Id { get; set; }
+  public int Id { get; set; }
 
   [Column("created_at")]
   public DateTime CreatedAt { get; set; }
