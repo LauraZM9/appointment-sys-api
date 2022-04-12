@@ -25,10 +25,20 @@ public class Startup
       // use case
       services.AddScoped<IFindBookingByIdUseCase, FindBookingByIdUseCase>();
       services.AddScoped<ICreateBookingUseCase, CreateBookingUseCase>();
+      
 
+
+      services.AddCors(options =>
+        {
+            // change cors policy to only allow our frontend & localhost.
+            options.AddPolicy("AllowAllOrigins",
+            builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+        });
       services.AddControllers();
       services.AddEndpointsApiExplorer();
       services.AddSwaggerGen();
+
+
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -49,6 +59,8 @@ public class Startup
         app.UseRouting();
 
         app.UseAuthorization();
+
+        app.UseCors("AllowAllOrigins");
 
         app.UseEndpoints((endpoints => { endpoints.MapControllers();}));
     }
