@@ -64,9 +64,9 @@ public class Startup
 
         app.UseRouting();
 
-        app.UseAuthorization();
-
         app.UseCors("AllowAllOrigins");
+
+        app.UseAuthorization();
 
         app.UseEndpoints((endpoints => { endpoints.MapControllers();}));
     }
