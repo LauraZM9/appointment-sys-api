@@ -26,6 +26,9 @@ public class Startup
       services.AddScoped<IFindBookingByIdUseCase, FindBookingByIdUseCase>();
       services.AddScoped<ICreateBookingUseCase, CreateBookingUseCase>();
       
+      services.AddCors(options => { 
+        options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()); });
+
       services.AddControllers();
       services.AddEndpointsApiExplorer();
       services.AddSwaggerGen();
@@ -62,6 +65,8 @@ public class Startup
         app.UseRouting();
 
         app.UseAuthorization();
+
+        app.UseCors("AllowAllOrigins");
 
         app.UseEndpoints((endpoints => { endpoints.MapControllers();}));
     }
