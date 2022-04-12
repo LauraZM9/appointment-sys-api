@@ -24,7 +24,7 @@ public class BookingsGateway : IBookingsGateway
 
     public Booking CreateBooking(Booking booking)
     {
-        _databaseContext.Bookings.Add(booking);
+        if (booking.Id == default) _databaseContext.Bookings.Add(booking);
         _databaseContext.SaveChanges();
 
         return booking;

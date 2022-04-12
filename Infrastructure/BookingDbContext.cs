@@ -11,6 +11,9 @@ public class BookingDbContext : DbContext
   public BookingDbContext(DbContextOptions<BookingDbContext> options) : base(options) {}
   public DbSet<Booking> Bookings {get; set;}
 
+  Random rnd = new Random();
+
+
   public override int SaveChanges()
     {
         var entries = ChangeTracker
@@ -20,7 +23,7 @@ public class BookingDbContext : DbContext
         foreach (var entityEntry in entries)
         {
             var entity = ((IEntity) entityEntry.Entity);
-            // if (entity.Id == default) entity.Id = Guid.NewGuid();
+            if (entity.Id == default) entity.Id = rnd.Next(1,100000);
             if (entity.CreatedAt == default) entity.CreatedAt = DateTime.UtcNow;
         }
 
